@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnLab | The Future of Hardware</title>
+    <meta name="description" content="EnLab is building the world's first Agentic IDE for hardware electronics.">
+    
+    <!-- Tailwind CSS (Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal accent
+                            600: '#0d9488',
+                            900: '#000000', // Deep black
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Grid Background for that "Engineering/Schematic" look */
+        .bg-grid {
+            background-size: 50px 50px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-black text-white font-sans antialiased selection:bg-brand-500 selection:text-black">
+
+    <!-- Background Grid Effect -->
+    <div class="fixed inset-0 bg-grid z-0 pointer-events-none"></div>
+    <div class="fixed inset-0 bg-gradient-to-b from-black via-transparent to-black z-0 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="relative z-50 w-full px-6 py-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-3">
+            <!-- LOGO: Ensure your file is named Enlab.jpeg -->
+            <img src="./Enlab.jpeg" alt="EnLab Logo" class="h-12 w-auto object-contain">
+        </div>
+        <a href="#join" class="hidden md:block px-5 py-2 rounded-full border border-white/20 hover:bg-white hover:text-black transition duration-300 text-sm font-medium">
+            Contact Team
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 pt-20 pb-32 px-6 text-center max-w-5xl mx-auto">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-brand-500 text-xs font-semibold tracking-wider uppercase mb-8 animate-fade-in-up">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+            India's Moment in Deep Tech
+        </div>
+
+        <h1 class="font-display text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400">
+            The End of <br class="hidden md:block" /> "Hard" Ware
+        </h1>
+
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+            We are teaching silicon to speak human. EnLab is the world's first 
+            <span class="text-white font-semibold">Agentic IDE</span> that lets you describe ideas and builds the hardware for you.
+        </p>
+
+        <!-- EMAIL FORM SECTION -->
+        <div id="join" class="max-w-md mx-auto relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-brand-500 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            
+            <!-- IMPORTANT: FORM SETUP -->
+            <!-- We will use Formspree for handling emails. See tutorial below code. -->
+            <form 
+                action="https://formspree.io/f/YOUR_FORM_ID_HERE" 
+                method="POST" 
+                class="relative flex flex-col sm:flex-row gap-2 bg-black p-2 rounded-lg border border-white/10"
+            >
+                <input 
+                    type="email" 
+                    name="email" 
+                    required 
+                    placeholder="Enter your email for early access..." 
+                    class="flex-1 bg-transparent text-white px-4 py-3 focus:outline-none placeholder-gray-600"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-white text-black px-6 py-3 rounded font-bold hover:bg-brand-500 hover:text-white transition duration-300 flex items-center justify-center gap-2"
+                >
+                    Join Waitlist <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </form>
+            <p class="text-xs text-gray-500 mt-3">Be the first to access the DHIL Simulation Engine.</p>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="relative z-10 py-20 px-6 border-t border-white/10 bg-black/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Feature 1 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-brand-500/50 transition duration-500">
+                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6 text-brand-500">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-display">Agentic IDE</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        An AI that thinks like an engineer. Describe your idea, and our system maps pins, designs schematics, and writes optimized firmware automatically.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-brand-500/50 transition duration-500">
+                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6 text-brand-500">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-display">DHIL Architecture</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Digital Hardware in the Loop. We create a precise Digital Twin of your component, validating every line of firmware before it touches real silicon.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card p-8 rounded-2xl hover:border-brand-500/50 transition duration-500">
+                    <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6 text-brand-500">
+                        <i data-lucide="mic" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 font-display">Self-Describing Silicon</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We are pioneering hardware that understands itself. Responsive, adaptive, and intelligence-ready silicon that integrates without friction.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="relative z-10 py-24 px-6 text-center max-w-4xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">"If you can think it, you can build it."</h2>
+        <p class="text-gray-400 mb-8">
+            The next deep-tech giant will not rise from Silicon Valley. It will rise from India.
+            We are unlocking the creativity of 1.4 billion people.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 py-8 text-center text-gray-600 text-sm border-t border-white/5">
+        <p class="mb-2">&copy; 2026 ENABLE SILICON TECHNOLOGIES PRIVATE LIMITED. All rights reserved.</p>
+        <p>Building the brain for hardware | For the world | From India</p>
+        <div class="mt-4 flex justify-center gap-4">
+             <!-- Team Credits from PDF -->
+            <span>Abhishek Jangid</span>
+            <span>&bull;</span>
+            <span>Bammidi Shiv Kumar</span>
+        </div>
+    </footer>
+
+    <!-- Icon Script -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>```
+
